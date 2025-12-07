@@ -1,0 +1,7 @@
+index:
+    path: /
+    controller: App\Controller\HomeController::index
+
+sync:
+  path: /sync
+  controller: App\Controller\HomeController::sync

@@ -1,0 +1,101 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12" style="text-align: center;">
+				Seja bem vindo ao Cidadão de Olho.
+			</div>
+		</div><br>
+		<div class="row">
+			<div class="col-md-12" style="text-align: center;">
+				<a href="{{ path('sync') }}" class="btn btn-lg btn-info" id="sinc">
+					<i class="fas fa-sync"></i>
+					Clique aqui pra sincronizar as informações
+				</a>
+			</div>
+		</div>
+		<br>
+
+		<div class="row">
+			<div class="col-md-12">
+				<div class="card">
+					<h5 class="card-header">Deputados que mais gastaram</h5>
+					<div class="card-body">
+						<div class="row">
+							<div class="col-md-12">
+								<table class="table table-striped">
+									<thead>
+										<th>Nome</th>
+										<th>Partido</th>
+										<th>Valor reembolsado</th>
+										<th></th>
+									</thead>
+									<tbody>
+										{# @foreach($mais_gastaram as $deputado)
+											<tr>
+												<td>{{$deputado->nome}}</td>
+												<td>{{$deputado->partido}}</td>
+												<td>R$ {{number_format($deputado->verbas_indenizatorias_count, 2, ',', '.')}}</td>
+												<td>
+													<a href="{{route('detail', [$deputado->id])}}" class="btn btn-link" data-toggle="tooltip" data-placement="bottom" title="Listar detalhes"><i class="fas fa-th-list"></i></a>
+												</td>
+											</tr>
+										@endforeach #}
+									</tbody>
+								</table>	
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12 text-center">
+								<a href="" class="btn btn-primary">Ver lista completa</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<br>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="card">
+					<h5 class="card-header">Partidos que mais gastaram</h5>
+					<div class="card-body">
+						<div class="row">
+							<div class="col-md-12">
+								<table class="table table-striped">
+									<thead>
+										<th>Partido</th>
+										<th>Valor total reembolsado para todos os deputados do partido</th>
+										<th>Média do valor reembolsado (Valor total/Quantidade de deputados)</th>
+										<th></th>
+									</thead>
+									<tbody>
+										{# @foreach($partidos_mais_gastaram as $partido => $deputados)
+											<tr>
+												<td>{{$partido}}</td>
+												<td>R$ {{number_format($deputados->sum('verbas_indenizatorias_count'),2, ',', '.')}}</td>
+												<td>R$ {{number_format($deputados->sum('verbas_indenizatorias_count')/$deputados->count(),2, ',', '.')}}</td>
+												<td>
+													<a href="{{route('deputados_partido', $partido)}}" class="btn btn-link" data-toggle="tooltip" data-placement="bottom" title="Listar detalhes"><i class="fas fa-th-list"></i></a>
+												</td>
+											</tr>
+										@endforeach #}
+									</tbody>
+								</table>	
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12 text-center">
+								<a href="" class="btn btn-primary">Ver lista completa</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
